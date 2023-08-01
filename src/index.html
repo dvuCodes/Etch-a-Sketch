@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Etch</h1>
+    </header>
+
+    <main>
+      <!-- side bar -->
+      <aside class="sidebar">
+        <h1>Settings Here</h1>
+        <form action="">
+          <label for="grid-number">Change grid layout (Max 100)</label>
+          <input
+            type="number"
+            name="grid-name"
+            max="100"
+            min="4"
+            id="grid-input"
+          />
+          <h3>Grid Size: <span id="grid-size-display">16 x 16</span></h3>
+          <button id="change-grid-btn">Change</button>
+        </form>
+      </aside>
+
+      <section>
+        <div class="grid" id="grid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

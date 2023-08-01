@@ -1,0 +1,57 @@
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  border: 1px solid black;
+  height: 100px;
+}
+
+/* sidebar styles */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar button {
+  width: 80%;
+}
+
+/* main sizings */
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.grid-container {
+  display: flex;
+  width: auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 40rem;
+  width: 40rem;
+}
+
+.grid-cells {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.hover {
+  background-color: black;
+}
