@@ -7,13 +7,12 @@ const gridInputEl = document.getElementById("grid-input")
 // Trigger creation of grid on DOM content loaded
 window.addEventListener("DOMContentLoaded", (e) => {
   createGrids()
-  onLoad()
 })
 
 changeGridBtnEl.addEventListener("click", (e) => {
   e.preventDefault()
   createGrids(gridInputEl.value)
-  onLoad()
+  gridInputEl.value = ""
 })
 
 function createGrids(num) {
@@ -44,6 +43,7 @@ function createGrids(num) {
       const newDiv = document.createElement("div")
       // refernce a class attribute to create
       const classAttribute = document.createAttribute("class")
+
       classAttribute.value = "grid-cells"
 
       // set the attribute of the newDiv to the assigned class attribute
@@ -54,15 +54,24 @@ function createGrids(num) {
       widthHeightAttribute.value = `width: ${pixelWidth}; height:${pixelHeight}`
       newDiv.setAttributeNode(widthHeightAttribute)
 
+      // add the hover effect as we iterate through the pixels
+      newDiv.addEventListener("mouseenter", e => e.target.classList.add("hover"))
+
       // Add the new element to the DOM
       divArray[i].appendChild(newDiv)
     }
   }
 }
 
-function onLoad() {
-  const gridPixels = document.querySelectorAll("grid-cells")
-  gridPixels.forEach((grid) =>
-    grid.addEventListener("mouseenter", (e) => e.target.classList.add("hover"))
-  )
-}
+// function onLoad() {
+//   const gridPixels = document.querySelectorAll("grid-cells")
+  
+//   for (let i = 0; i < gridPixels.length ; i++) {
+//     // gridPixels[i].addEventListener("mouseenter", e => e.target.classList.add('hover'))
+//     console.log(gridPixels[i])
+//   }
+
+//   // gridPixels.forEach((grid) =>
+//   //   grid.addEventListener("mouseenter", (e) => e.target.classList.add("hover"))
+//   // )
+// }
