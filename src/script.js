@@ -7,14 +7,13 @@ const gridInputEl = document.getElementById("grid-input")
 // Trigger creation of grid on DOM content loaded
 window.addEventListener("DOMContentLoaded", (e) => {
   createGrids()
+  onLoad()
 })
-
-onLoad()
 
 changeGridBtnEl.addEventListener("click", (e) => {
   e.preventDefault()
-  console.log(gridInputEl)
-  createGrids(getGridNumbers(gridInputEl.value))
+  createGrids(gridInputEl.value)
+  onLoad()
 })
 
 function createGrids(num) {
@@ -24,8 +23,11 @@ function createGrids(num) {
   let pixelWidth = 40 / numberOfPixels + "rem"
   let pixelHeight = 40 / numberOfPixels + "rem"
 
-  //   Refence the main grid container=
+  //   Refence the main grid container
   const gridEl = document.getElementById("grid")
+
+  // clear grid to allow a fresh grid and not additional
+  gridEl.innerHTML = ""
 
   //   intiate array
   let divArray = []
@@ -57,17 +59,6 @@ function createGrids(num) {
     }
   }
 }
-
-// const gridBoxEl = document.querySelectorAll(".grid-cells")
-
-// gridBoxEl.forEach((box) => {
-//   box.addEventListener("mouseenter", (e) => {
-//     e.target.classList.add("hover")
-//   })
-//   box.addEventListener("mouseleave", (e) => {
-//     e.target.classList.remove("hover")
-//   })
-// })
 
 function onLoad() {
   const gridPixels = document.querySelectorAll("grid-cells")
